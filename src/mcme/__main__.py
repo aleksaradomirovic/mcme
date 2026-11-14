@@ -55,7 +55,7 @@ if __name__ == "__main__":
         match mod["source"]:
             case "modrinth":
                 import mcme.modrinth
-                mcme.modrinth.ModrinthSource().install(mod["id"], instance)
+                mcme.modrinth.ModrinthSource().install(mod["id"], instance, unstable=mod.get("unstable", False))
             case _:
                 raise ValueError("unknown mod source")
 

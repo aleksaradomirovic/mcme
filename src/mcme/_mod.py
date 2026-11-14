@@ -16,5 +16,5 @@
 from ._instance import *
 
 class ModSource:
-    def install(self, id, instance: Instance):
+    def install(self, id, instance: Instance, unstable=False):
         raise NotImplementedError
