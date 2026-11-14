@@ -1,0 +1,16 @@
+{
+    "loader": {
+        "type": "fabric"
+    },
+
+    "mods": [
+        {
+            "source": "modrinth",
+            "id": "fabric-api"
+        },
+        {
+            "source": "modrinth",
+            "id": "lithium"
+        }
+    ]
+}
