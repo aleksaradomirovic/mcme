@@ -12,5 +12,12 @@
             "source": "modrinth",
             "id": "lithium"
         }
-    ]
+    ],
+
+    "runtime": {
+        "extra_args": [
+            "-XX:+UseZGC",
+            "-Xms1g"
+        ]
+    }
 }

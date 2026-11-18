@@ -59,5 +59,7 @@ if __name__ == "__main__":
             case _:
                 raise ValueError("unknown mod source")
 
-    runtime = mcme.Runtime("java")
+    config_runtime = config.get("runtime", {})
+
+    runtime = mcme.Runtime("java", extra_args=config_runtime.get("extra_args", []))
     runtime.exec(instance)

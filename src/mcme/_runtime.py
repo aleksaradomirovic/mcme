@@ -20,15 +20,16 @@ import shutil
 from ._instance import *
 
 class Runtime:
-    def __init__(self, java_exe):
+    def __init__(self, java_exe, extra_args=[]):
         self.__java_exe = pathlib.Path(java_exe)
+        self.__extra_args = extra_args.copy()
 
     def exec(self, instance: Instance):
         with open(instance.directory() / "eula.txt", "w") as f:
             f.write("eula=true")
 
         exe = pathlib.Path(shutil.which(self.__java_exe))
-        cmd = [ exe, "-jar", instance.loader().jarfile() ] + instance.loader().cmd(instance)
+        cmd = [ exe, *self.__extra_args, "-jar", instance.loader().jarfile() ] + instance.loader().cmd(instance)
         cwd = instance.directory()
 
         os.chdir(cwd)
